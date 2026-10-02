@@ -6,7 +6,7 @@ import { ScrollReveal } from '../components/ScrollReveal';
 import { TestimonialSlider } from '../components/TestimonialSlider';
 import { Users, Trophy, Calendar, ArrowRight, Play, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ASSETS } from '../utils/assets';
+import { ASSETS, getRandomAthleteImage, getAthleteImage } from '../utils/assets';
 import { Stat, Testimonial } from '../types';
 
 export const Home: React.FC = () => {
@@ -49,21 +49,21 @@ export const Home: React.FC = () => {
       quote: language === 'en' ? "Al Thiqah Club changed my life. The coaches saw potential in me when I didn't see it myself." : "نادي الثقة غير حياتي. رأى المدربون فيّ إمكانات لم أرها في نفسي.",
       author: language === 'en' ? "Ahmed Al Mutawa" : "أحمد المطوع",
       role: language === 'en' ? "Paralympic Athlete" : "بطل بارالمبي",
-      image: "https://picsum.photos/800/800?random=88"
+      image: getAthleteImage(1)
     },
     {
       id: 2,
       quote: language === 'en' ? "A wonderful community that supports families and builds confidence in our children." : "مجتمع رائع يدعم العائلات ويبني الثقة في أطفالنا.",
       author: language === 'en' ? "Fatima Hassan" : "فاطمة حسن",
       role: language === 'en' ? "Parent" : "ولي أمر",
-      image: "https://picsum.photos/800/800?random=89"
+      image: getAthleteImage(5)
     },
     {
       id: 3,
       quote: language === 'en' ? "Volunteering here has been the most rewarding experience of my career." : "التطوع هنا كان أكثر تجربة مجزية في مسيرتي المهنية.",
       author: language === 'en' ? "Dr. John Smith" : "د. جون سميث",
       role: language === 'en' ? "Volunteer Doctor" : "طبيب متطوع",
-      image: "https://picsum.photos/800/800?random=90"
+      image: getAthleteImage(10)
     }
   ];
 
@@ -171,7 +171,7 @@ export const Home: React.FC = () => {
             </ScrollReveal>
             <ScrollReveal animation={isRTL ? "slide-left" : "slide-right"} delay={200} className="order-1 lg:order-2 relative">
               <div className="relative z-10 rounded-sm overflow-hidden shadow-2xl group">
-                <img src="https://picsum.photos/600/700?random=101" alt="Athlete" loading="lazy" decoding="async" className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <img src={ASSETS.ATHLETES.FEATURED} alt="Al Thiqah Club Athlete" loading="lazy" decoding="async" className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105" />
               </div>
               <div className={`absolute -bottom-6 ${isRTL ? '-right-6' : '-left-6'} w-1/2 h-1/2 bg-sand dark:bg-neutral-800 -z-0 rounded-sm`}></div>
               <div className={`absolute -top-6 ${isRTL ? '-left-6' : '-right-6'} w-1/2 h-1/2 border-2 border-primary/20 -z-0 rounded-sm`}></div>
@@ -205,7 +205,7 @@ export const Home: React.FC = () => {
               <ScrollReveal key={prog.id} delay={idx * 100}>
                 <Link to={`/programs/${prog.id}`} className="group cursor-pointer block h-full">
                     <div className="relative overflow-hidden mb-6 h-[300px] md:h-[400px] rounded-sm shadow-sm group-hover:shadow-xl transition-all duration-500">
-                    <img src={`https://picsum.photos/600/800?random=${prog.id}`} alt={prog.title[language]} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <img src={getAthleteImage(prog.id)} alt={prog.title[language]} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500"></div>
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
                         <div className="w-16 h-16 rounded-full bg-white text-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
@@ -262,7 +262,7 @@ export const Home: React.FC = () => {
       {/* CTA Section */}
       <section className="relative py-20 md:py-32 flex items-center justify-center bg-neutral-900 overflow-hidden">
          <div className="absolute inset-0 opacity-40">
-           <img src="https://picsum.photos/1920/600?grayscale" className="w-full h-full object-cover" alt="Community" loading="lazy" decoding="async" />
+           <img src={ASSETS.FACILITIES.BASKETBALL_1} className="w-full h-full object-cover" alt="Al Thiqah Club Basketball" loading="lazy" decoding="async" />
          </div>
          <div className="absolute inset-0 bg-neutral-900/40"></div>
          <ScrollReveal animation="fade-up" className="container relative z-10 text-center text-white px-4">

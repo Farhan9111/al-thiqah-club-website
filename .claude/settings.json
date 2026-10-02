@@ -7,7 +7,9 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git config *)",
-      "Bash(git commit -m 'Initial commit: Al Thiqah Club website with React, TypeScript, Tailwind *)"
+      "Bash(git commit -m 'Initial commit: Al Thiqah Club website with React, TypeScript, Tailwind *)",
+      "Bash(npm run *)",
+      "Bash(git commit -m 'feat: Integrate real Al Thiqah Club brand assets *)"
     ]
   }
 }
